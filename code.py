@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import requests
 import pickle
+from tqdm import tqdm_notebook as tqdm
 from io import BytesIO
 import warnings
 warnings.filterwarnings('ignore')
@@ -33,7 +34,7 @@ def print_text_only(resultt):
 data['text_extracted'] = 'default v'
 
 
-for i in range(20000 , 30000):
+for i in tqdm(range(20000 , 30000)):
     url = data.iloc[i].image_link
     arr = get_image_for_url(url)
     
